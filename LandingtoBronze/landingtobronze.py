@@ -96,7 +96,7 @@ def write_df_with_custom_name(df, file_name):
     for obj in response.get("Contents", []):
         key = obj["Key"]
         if key.endswith(".parquet"):
-            new_key = f"bronze/{file_name}/{file_name}.parquet"
+            new_key = f"bronze/prueba/{file_name}/{file_name}.parquet"
             s3.copy_object(Bucket=bucket, CopySource={"Bucket": bucket, "Key": key}, Key=new_key)
             s3.delete_object(Bucket=bucket, Key=key)
             break
